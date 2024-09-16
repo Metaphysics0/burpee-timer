@@ -1,20 +1,15 @@
 <script lang="ts">
 	import burpeeLoop from '$lib/assets/burpee-loop.mov';
-	import { onMount } from 'svelte';
+	import { currentTempoStore } from '$lib/stores/current-tempo.store';
 
-	let videoElement: HTMLVideoElement;
-
-	onMount(() => {
-		const observer = new MutationObserver((records) => {
-			console.log('mutitaion observer records', records);
-			const els = records[0].removedNodes;
-			console.log(els);
-		});
-
-		observer.observe(videoElement, { childList: true });
+	let element: HTMLVideoElement;
+	currentTempoStore.subscribe((tempo: number) => {
+		if (element && tempo) {
+			element.playbackRate = 1 + (tempo - 50) / 150;
+		}
 	});
 </script>
 
-<video autoplay loop muted class="mb-3 rounded-md shadow-md" bind:this={videoElement}>
+<video autoplay loop muted class="mb-3 rounded-md shadow-md" bind:this={element}>
 	<source src={burpeeLoop} />
 </video>
