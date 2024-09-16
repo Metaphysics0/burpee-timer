@@ -1,0 +1,3 @@
+export const MAX_TEMPO_SLIDER_VALUE = 100;
+export const MIN_TEMPO_SLIDER_VALUE = 1;
+export const DEFAULT_TEMPO_SLIDER_VALUE = 50;
