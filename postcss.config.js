@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const tailwindcss = require('tailwindcss');
+import tailwindcss from 'tailwindcss';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const autoprefixer = require('autoprefixer');
+import autoprefixer from 'autoprefixer';
 
 const config = {
 	plugins: [
@@ -11,4 +11,4 @@ const config = {
 		autoprefixer
 	]
 };
-module.exports = config;
+export default config;
